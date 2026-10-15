@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QuickApe Privacy Policy</title>
+<meta name="description" content="How the QuickApe browser extension handles your data.">
+<meta name="theme-color" content="#060812">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23A3E635'/%3E%3Cpolygon points='40,28 40,84 53,72 62,92 71,88 62,68 79,68' fill='%230E1319'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=Onest:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+<main class="doc">
+  <a class="back" href="/">← QuickApe</a>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective October 14, 2026 · Applies to the QuickApe browser extension and www.quickape.world</p>
+
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li>QuickApe has no user accounts, no analytics, no advertising, and does not sell data.</li>
+      <li>Your wallet keys are created or imported in your browser, encrypted with your password, and never leave your device.</li>
+      <li>To show prices and execute the trades you ask for, the extension sends token addresses, your public wallet address, trade amounts, and signed transactions to the services listed below.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data stored on your device</h2>
+    <ul>
+      <li><b>Trading wallet.</b> The seed phrase or private keys of the trading wallet you create or import. They are encrypted with PBKDF2-SHA256 (600,000 iterations) and AES-256-GCM and stored in the extension's local storage. While the wallet is unlocked, the decryption key is kept in session storage, which the browser clears when it closes.</li>
+      <li><b>Settings.</b> Quick-buy amounts, slippage, RPC URLs, enabled sites, and similar preferences.</li>
+      <li><b>Activity.</b> Your last 100 trades and withdrawals (token, amount, status, transaction ID).</li>
+      <li><b>Connected wallet addresses.</b> In connected mode, the public addresses your Phantom or MetaMask shared, so the popup can show balances.</li>
+    </ul>
+    <p>This data is not sent to us. Uninstalling the extension, or choosing <i>Reset wallet</i>, deletes it.</p>
+  </section>
+
+  <section>
+    <h2>Website content</h2>
+    <p>On the supported sites (X, Dexscreener, GMGN, Fomo, pump.fun, Birdeye, Axiom, and Telegram Web) the extension reads the text, links, and page address of the page you are viewing to find token contract addresses and add quick-buy buttons. This happens locally in your browser. Only a detected token address is sent to the market-data services below, when the panel shows that token or you trade it. The extension does not read or store your messages, followers, or browsing history.</p>
+  </section>
+
+  <section>
+    <h2>Services the extension contacts</h2>
+    <p>These requests are made directly from your browser to provide the extension's single purpose. Each service receives your IP address and the request contents, and is governed by its own privacy policy.</p>
+    <table>
+      <thead><tr><th>Service</th><th>Why</th><th>What it receives</th></tr></thead>
+      <tbody>
+        <tr><td>Dexscreener</td><td>Token price, market cap, liquidity</td><td>Token or pair address, ticker searches</td></tr>
+        <tr><td>GoPlus Security</td><td>Honeypot and tax checks on EVM tokens</td><td>Token address</td></tr>
+        <tr><td>Jupiter</td><td>Solana swap quotes and transactions</td><td>Token addresses, amount, your public wallet address</td></tr>
+        <tr><td>KyberSwap</td><td>Base, BSC, and Ethereum swap routes</td><td>Token addresses, amount, your public wallet address</td></tr>
+        <tr><td>QuickApe RPC (Vercel, forwarding to Helius)</td><td>Solana balances and sending transactions</td><td>Your public wallet address, signed transactions</td></tr>
+        <tr><td>PublicNode and EVM public RPCs</td><td>Backup Solana RPC; Base, BSC, and Ethereum RPC</td><td>Your public wallet address, signed transactions</td></tr>
+        <tr><td>Jito block engine (only if you enable Jito tips)</td><td>Faster Solana transaction landing</td><td>Signed transactions</td></tr>
+      </tbody>
+    </table>
+    <p>Blockchain transactions are public by nature: once sent, your wallet address, the tokens, and the amounts are visible on block explorers.</p>
+  </section>
+
+  <section>
+    <h2>QuickApe RPC</h2>
+    <p>Our RPC endpoint (www.quickape.world/api/rpc) forwards Solana RPC requests to Helius so the extension works without you configuring anything. It does not store request contents. Your IP address is held in memory briefly for rate limiting, and our hosting provider (Vercel) keeps standard request logs for a limited period. You can replace it with your own RPC in Settings.</p>
+  </section>
+
+  <section>
+    <h2>Fees</h2>
+    <p>QuickApe charges 0.5% of each trade. The fee is part of the swap transaction and is paid on-chain to QuickApe's fee wallets; no payment details are collected.</p>
+  </section>
+
+  <section>
+    <h2>Connected mode</h2>
+    <p>If you use Phantom, MetaMask, or another wallet in connected mode, QuickApe never receives your keys. A script on the page asks your wallet to connect and to approve each transaction; your wallet shows its own approval window.</p>
+  </section>
+
+  <section>
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't sell or rent data, or share it with data brokers or advertisers.</li>
+      <li>We don't use data for purposes unrelated to trading through the extension.</li>
+      <li>We don't use data to determine creditworthiness or for lending.</li>
+      <li>We don't run analytics or tracking scripts in the extension.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Children</h2>
+    <p>QuickApe is not intended for anyone under 18.</p>
+  </section>
+
+  <section>
+    <h2>Changes and contact</h2>
+    <p>We will update this page when the extension's data handling changes and change the effective date above. Questions: <a href="mailto:support@quickape.world">support@quickape.world</a>.</p>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickApe UI preview</title>
+    <style>
+      body { margin: 0; background: #15202b; font-family: system-ui, sans-serif; color: #e7e9ea; }
+      .nav { display: flex; gap: 12px; padding: 10px 16px; background: #0f1419; border-bottom: 1px solid #2f3336; font-size: 13px; }
+      .nav a { color: #1d9bf0; }
+      .tweet { max-width: 560px; margin: 24px; padding: 14px 16px; border: 1px solid #2f3336; border-radius: 14px; background: #000; }
+      .tweet .who { font-weight: 700; margin-bottom: 4px; }
+      .tweet .who span { color: #71767b; font-weight: 400; }
+      .tweet a { color: #1d9bf0; text-decoration: none; }
+      .fake-chart { position: fixed; right: 0; top: 40px; width: 60vw; height: calc(100vh - 40px); z-index: 0;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 18px, rgba(255,255,255,.04) 18px 19px),
+          linear-gradient(180deg, transparent 0 30%, rgba(34,197,94,.55) 30% 34%, transparent 34%) 10% 0/22px 100% no-repeat,
+          linear-gradient(180deg, transparent 0 22%, rgba(34,197,94,.7) 22% 40%, transparent 40%) 22% 0/22px 100% no-repeat,
+          linear-gradient(180deg, transparent 0 36%, rgba(239,68,68,.7) 36% 52%, transparent 52%) 34% 0/22px 100% no-repeat,
+          linear-gradient(180deg, transparent 0 15%, rgba(34,197,94,.7) 15% 45%, transparent 45%) 46% 0/22px 100% no-repeat,
+          linear-gradient(180deg, transparent 0 40%, rgba(239,68,68,.7) 40% 60%, transparent 60%) 58% 0/22px 100% no-repeat,
+          linear-gradient(180deg, transparent 0 10%, rgba(34,197,94,.75) 10% 35%, transparent 35%) 70% 0/22px 100% no-repeat,
+          linear-gradient(180deg, transparent 0 25%, rgba(139,92,246,.6) 25% 70%, transparent 70%) 82% 0/22px 100% no-repeat,
+          radial-gradient(60% 50% at 70% 30%, rgba(59,130,246,.35), transparent 70%), #0d1117; }
+      .tweet { position: relative; z-index: 1; }
+      .walletlog { position: relative; z-index: 1; max-width: 560px; margin: 24px; padding: 12px; border-radius: 10px; background: #000; border: 1px solid #2f3336; font: 12px/1.5 ui-monospace, monospace; color: #9fe870; white-space: pre-wrap; }
+      .popup-frame { width: 380px; margin: 24px; border: 1px solid #2f3336; border-radius: 10px; overflow: hidden; }
+      body.bare { background: transparent; }
+      body.bare .nav { display: none; }
+      body.bare .popup-frame { margin: 0; border: 0; border-radius: 0; }
+      body.bare .fake-chart { top: 0; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <b>Preview:</b>
+      <a href="?view=page">Page (X + panel)</a>
+      <a href="?view=popup">Popup</a>
+      <a href="?view=onboarding">Onboarding</a>
+      <a href="?view=locked">Locked</a>
+      <a href="?view=settings">Settings</a>
+      <a href="?view=connected">Connected popup</a>
+      <a href="?view=bridge">Bridge test</a>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>

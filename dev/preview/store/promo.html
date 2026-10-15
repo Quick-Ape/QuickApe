@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QuickApe promo tile</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Onest:wght@500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Chrome Web Store promo images: ?size=small (440x280) or ?size=marquee (1400x560). */
+:root { --lime: #b4f24a; --ink: #0b1006; --text: #eef2f8; --muted: #a7b1c8; --line: rgba(255,255,255,.14); }
+* { box-sizing: border-box; }
+html, body { margin: 0; overflow: hidden; }
+body { font-family: 'Onest', system-ui, sans-serif; color: var(--text);
+  background:
+    radial-gradient(50% 70% at 0% 0%, rgba(180,242,74,.38), transparent 70%),
+    radial-gradient(50% 80% at 100% 30%, rgba(123,97,255,.48), transparent 72%),
+    radial-gradient(60% 60% at 40% 120%, rgba(46,211,183,.3), transparent 70%),
+    linear-gradient(180deg, #080b1a, #05070f); }
+.logo { border-radius: 22%; box-shadow: 0 12px 32px -10px rgba(180,242,74,.75); }
+.name { font: 700 1em 'Unbounded', sans-serif; letter-spacing: -0.02em; }
+.chip { display: inline-flex; gap: 3px; padding: 4px; border-radius: 999px; background: rgba(12,16,26,.6); border: 1px solid var(--line); box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }
+.chip b { display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; border-radius: 999px; color: var(--ink); background: linear-gradient(180deg, #d2fa8a, var(--lime)); font-weight: 600; }
+.chip span { display: inline-flex; align-items: center; padding: 0 14px; font: 500 .82em 'JetBrains Mono', monospace; color: var(--muted); }
+
+/* small 440x280 */
+.small { width: 440px; height: 280px; padding: 30px 32px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+.small .row { display: flex; align-items: center; gap: 14px; font-size: 34px; }
+.small p { margin: 0; font: 600 21px/1.3 'Onest', sans-serif; color: var(--text); }
+.small p em { font-style: normal; color: var(--lime); }
+.small .chip { font-size: 15px; height: 44px; align-self: flex-start; }
+
+/* marquee 1400x560 */
+.marquee { width: 1400px; height: 560px; padding: 0 96px; display: grid; grid-template-columns: 1fr 520px; align-items: center; gap: 60px; }
+.marquee .row { display: flex; align-items: center; gap: 16px; font-size: 30px; margin-bottom: 26px; }
+.marquee h1 { margin: 0; font: 700 64px/1.04 'Unbounded', sans-serif; letter-spacing: -0.035em; }
+.marquee h1 em { font-style: normal; color: var(--lime); }
+.marquee p { margin: 22px 0 0; font-size: 22px; line-height: 1.5; color: var(--muted); max-width: 30em; }
+.card { border-radius: 26px; padding: 22px; background: linear-gradient(155deg, rgba(255,255,255,.12), rgba(255,255,255,.03) 45%), rgba(16,20,34,.55); border: 1px solid var(--line); box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 40px 80px -30px rgba(0,0,0,.7); }
+.tweet b { font-weight: 600; } .tweet small { color: #6d7891; font-size: 15px; }
+.tweet p { margin: 10px 0 14px; font-size: 18px; line-height: 1.45; color: #dfe6f2; max-width: none; }
+.tweet code { font: 500 14px 'JetBrains Mono', monospace; color: #c8d1e4; word-break: break-all; }
+.tweet .chip { font-size: 16px; height: 46px; }
+.toast { margin-top: 16px; display: flex; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 18px; background: rgba(62,230,160,.1); border: 1px solid rgba(62,230,160,.3); }
+.toast i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-style: normal; color: #3ee6a0; background: rgba(62,230,160,.18); }
+.toast b { display: block; } .toast span { color: var(--muted); font-size: 15px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#A3E635"/><polygon points="40,28 40,84 53,72 62,92 71,88 62,68 79,68" fill="#0E1319" stroke="#0E1319" stroke-width="3" stroke-linejoin="round"/><g stroke="#0E1319" stroke-width="5" stroke-linecap="round"><line x1="31" y1="28" x2="21" y2="28"/><line x1="33" y1="21" x2="26" y2="14"/><line x1="40" y1="19" x2="40" y2="9"/></g></symbol>
+  <symbol id="cursor" viewBox="17 5 66 90"><polygon points="40,28 40,84 53,72 62,92 71,88 62,68 79,68" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><g stroke="currentColor" stroke-width="7" stroke-linecap="round"><line x1="31" y1="28" x2="21" y2="28"/><line x1="33" y1="21" x2="26" y2="14"/><line x1="40" y1="19" x2="40" y2="9"/></g></symbol>
+</svg>
+<div id="tile"></div>
+<script>
+const size = new URLSearchParams(location.search).get('size') || 'small';
+const tile = document.getElementById('tile');
+if (size === 'small') {
+  tile.className = 'small';
+  tile.innerHTML = `
+    <div class="row"><svg class="logo" width="56" height="56"><use href="#logo"/></svg><span class="name">QuickApe</span></div>
+    <p>See a CA. <em>Click once.</em><br>Buy memecoins where you find them.</p>
+    <span class="chip"><b><svg width="11" height="15"><use href="#cursor"/></svg>0.1 SOL</b><span>9xKq…pump ▸</span></span>`;
+} else {
+  tile.className = 'marquee';
+  tile.innerHTML = `
+    <div>
+      <div class="row"><svg class="logo" width="52" height="52"><use href="#logo"/></svg><span class="name">QuickApe</span></div>
+      <h1>See a CA.<br><em>Click once.</em><br>You're in.</h1>
+      <p>Buy and sell memecoins in one click, right on the pages where you find them. Solana and EVM chains.</p>
+    </div>
+    <div class="card tweet">
+      <div><b>degen.sol</b> <small>@degenwatch · 2m</small></div>
+      <p>mooncat just migrated off the curve, dev renounced, chart looks clean</p>
+      <code>CA: 9xKqTmPQ4dW7nBvRZc2hLsY6uFa8JgN3eM1tXHVbpump</code>
+      <div style="margin-top:14px"><span class="chip"><b><svg width="11" height="15"><use href="#cursor"/></svg>0.1 SOL</b><span>9xKq…pump ▸</span></span></div>
+      <div class="toast"><i>✓</i><div><b>Bought MOONCAT</b><span>0.1 SOL → ≈ 238.1K MOONCAT · 0.9s</span></div></div>
+    </div>`;
+}
+</script>
+</body>
+</html>

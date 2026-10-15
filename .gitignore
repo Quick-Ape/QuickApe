@@ -1,0 +1,10 @@
+node_modules
+.output
+.wxt
+*.zip
+.env*
+.vercel
+
+# Local tooling and scratch
+.claude/
+store/v1-old/

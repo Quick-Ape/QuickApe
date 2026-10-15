@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QuickApe store screenshot</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* 1280x800 Chrome Web Store screenshot: copy on the left, the real extension UI (preview harness) on the right. */
+:root { --bg: #060812; --text: #eef2f8; --muted: #a7b1c8; --lime: #b4f24a; --line: rgba(255,255,255,.13); }
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1280px; height: 800px; overflow: hidden; }
+body {
+  font-family: 'Onest', system-ui, sans-serif; color: var(--text);
+  background:
+    radial-gradient(42% 55% at 2% 0%, rgba(180,242,74,.34), transparent 70%),
+    radial-gradient(45% 60% at 100% 22%, rgba(123,97,255,.42), transparent 72%),
+    radial-gradient(50% 50% at 40% 110%, rgba(46,211,183,.28), transparent 70%),
+    linear-gradient(180deg, #080b1a, #05070f);
+}
+.copy { position: absolute; left: 80px; top: 0; bottom: 0; width: 430px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+.brand { display: flex; align-items: center; gap: 12px; font: 600 22px 'Unbounded', sans-serif; }
+.brand svg { border-radius: 11px; box-shadow: 0 8px 24px -8px rgba(180,242,74,.7); }
+h1 { margin: 0; font: 700 50px/1.06 'Unbounded', sans-serif; letter-spacing: -0.03em; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--lime); }
+.sub { margin: 0; font-size: 20px; line-height: 1.5; color: var(--muted); }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pills span { padding: 8px 14px; border-radius: 999px; font-size: 15px; font-weight: 600; background: rgba(255,255,255,.07); border: 1px solid var(--line); }
+.pills span b { color: var(--lime); }
+.stage { position: absolute; left: 530px; top: 0; bottom: 0; right: 0; display: flex; align-items: center; justify-content: center; }
+.browser { width: 690px; height: 660px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line);
+  background: rgba(14,18,30,.7); box-shadow: 0 50px 100px -30px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.15); }
+.bar { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.04); }
+.bar i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.bar .url { margin-left: 14px; flex: 1; height: 26px; border-radius: 13px; padding: 0 12px; display: flex; align-items: center; font: 500 12.5px 'JetBrains Mono', monospace; color: var(--muted); background: rgba(0,0,0,.3); }
+.viewport { width: 690px; height: 616px; overflow: hidden; position: relative; }
+.viewport iframe { position: absolute; left: 0; top: 0; width: 863px; height: 770px; border: 0; transform: scale(.8); transform-origin: 0 0; }
+.popup { width: 384px; height: 640px; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 50px 100px -30px rgba(0,0,0,.85), 0 0 0 8px rgba(255,255,255,.04); background: #06080c; }
+.popup iframe { width: 384px; height: 640px; border: 0; display: block; }
+.pair { position: relative; width: 712px; height: 640px; }
+.pair .popup { position: absolute; top: 0; }
+.pair .popup:first-child { left: 0; transform: scale(.94); transform-origin: 0 50%; opacity: .92; }
+.pair .popup:last-child { right: 0; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#A3E635"/><polygon points="40,28 40,84 53,72 62,92 71,88 62,68 79,68" fill="#0E1319" stroke="#0E1319" stroke-width="3" stroke-linejoin="round"/><g stroke="#0E1319" stroke-width="5" stroke-linecap="round"><line x1="31" y1="28" x2="21" y2="28"/><line x1="33" y1="21" x2="26" y2="14"/><line x1="40" y1="19" x2="40" y2="9"/></g></symbol>
+</svg>
+<div class="copy">
+  <div class="brand"><svg width="40" height="40"><use href="#logo"/></svg>QuickApe</div>
+  <h1 id="title"></h1>
+  <p class="sub" id="sub"></p>
+  <div class="pills" id="pills"></div>
+</div>
+<div class="stage" id="stage"></div>
+<script>
+const SHOTS = {
+  1: {
+    title: "See a CA. <em>Click once.</em> You're in.",
+    sub: 'QuickApe puts a buy button next to token contract addresses on the sites you already use. No copy-paste, no swap screens.',
+    pills: ['<b>0.5%</b> fee', 'Solana + EVM', 'No account needed'],
+    kind: 'page', view: 'page', url: 'x.com/home', query: '&panel=0&buy=1', zoom: 1.15,
+  },
+  2: {
+    title: 'Click a CA, get <em>the full picture</em>',
+    sub: 'Price, market cap, liquidity, safety flags, and your position in one panel, docked right on the page.',
+    pills: ['<b>1-click</b> buy presets', 'Sell 25 / 50 / 100%', 'Honeypot &amp; authority checks'],
+    kind: 'page', view: 'page', url: 'x.com/home',
+  },
+  3: {
+    title: 'Fund it, trade, <em>cash out</em>',
+    sub: 'Deposit with a QR code, watch the balance land, and withdraw back to your main wallet whenever you want.',
+    pills: ['QR deposits', 'Live balances', 'Withdraw anytime'],
+    kind: 'pair', view: 'popup', click: 'Deposit',
+  },
+  4: {
+    title: 'Your main wallet <em>stays yours</em>',
+    sub: 'Create a fresh trading wallet for true 1-click trades, or connect the wallet you already use and approve every trade.',
+    pills: ['Keys encrypted on your device', 'Auto-lock', '<b>0.5%</b> fee'],
+    kind: 'popup', view: 'onboarding',
+  },
+  5: {
+    title: 'A flat 0.5% fee, <em>no surprises</em>',
+    sub: 'The fee is paid inside the same swap, shown in the panel before you click, and listed on every trade. Network fees go to the network, not to us.',
+    pills: ['Shown before you click', 'Max buy limits', 'Slippage control'],
+    kind: 'pair', view: 'settings', front: 'popup', click: 'Activity',
+  },
+};
+const n = new URLSearchParams(location.search).get('n') || '2';
+const s = SHOTS[n];
+document.getElementById('title').innerHTML = s.title;
+document.getElementById('sub').textContent = s.sub;
+document.getElementById('pills').innerHTML = s.pills.map((p) => `<span>${p}</span>`).join('');
+const src = `/?view=${s.view}&bare=1${s.query ?? ''}`;
+document.getElementById('stage').innerHTML = s.kind === 'page'
+  ? `<div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">${s.url}</span></div><div class="viewport"><iframe id="ui" src="${src}"></iframe></div></div>`
+  : s.kind === 'pair'
+    ? `<div class="pair"><div class="popup"><iframe id="back" src="${src}"></iframe></div><div class="popup"><iframe id="ui" src="/?view=${s.front ?? s.view}&bare=1"></iframe></div></div>`
+    : `<div class="popup"><iframe id="ui" src="${src}"></iframe></div>`;
+
+// Scroll the back popup to its last cards (Settings: auto-lock and fees).
+if (s.backScroll) {
+  document.getElementById('back').addEventListener('load', () => setTimeout(() => {
+    const doc = document.getElementById('back').contentDocument;
+    for (const el of [doc.scrollingElement, ...doc.querySelectorAll('*')]) {
+      if (el && el.scrollHeight > el.clientHeight + 4) el.scrollTop = el.scrollHeight;
+    }
+  }, 1200));
+}
+
+// On pair shots, click a button in the front popup (Deposit for the QR code, Activity for trade history).
+if (s.click) {
+  document.getElementById('ui').addEventListener('load', () => setTimeout(() => {
+    const doc = document.getElementById('ui').contentDocument;
+    [...doc.querySelectorAll('button')].find((b) => b.textContent.trim() === s.click)?.click();
+  }, 1200));
+}
+
+// Zoomed page shots render the harness at a narrower width so the feed fills the frame.
+if (s.zoom) {
+  const f = document.getElementById('ui');
+  f.style.transform = `scale(${s.zoom})`;
+  f.style.width = `${Math.round(690 / s.zoom)}px`;
+  f.style.height = `${Math.round(616 / s.zoom)}px`;
+}
+
+// On page shots with the panel open, press its 0.1 SOL buy so the confirmation toast is in frame.
+if (s.kind === 'page') {
+  document.getElementById('ui').addEventListener('load', () => setTimeout(() => {
+    const doc = document.getElementById('ui').contentDocument;
+    const host = [...doc.body.children].find((el) => el.shadowRoot);
+    const btn = host && [...host.shadowRoot.querySelectorAll('.qa-btn.buy')].find((b) => b.textContent.trim() === '0.1');
+    btn?.click();
+  }, 1500));
+}
+</script>
+</body>
+</html>

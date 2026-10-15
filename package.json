@@ -1,0 +1,38 @@
+{
+  "name": "quickape",
+  "description": "1-click memecoin buy/sell from X, Dexscreener, GMGN, Fomo and pump.fun — Solana + EVM",
+  "private": true,
+  "version": "1.0.3",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "compile": "tsc --noEmit",
+    "test": "vitest run",
+    "postinstall": "wxt prepare",
+    "preview:ui": "vite --config dev/preview/vite.config.ts",
+    "deploy:site": "vercel deploy site --prod --yes --project quickape"
+  },
+  "dependencies": {
+    "@noble/curves": "1.9.1",
+    "@noble/hashes": "1.8.0",
+    "@scure/base": "1.2.6",
+    "@scure/bip39": "1.6.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "uqr": "0.1.3",
+    "viem": "2.56.9"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "@wxt-dev/module-react": "1.2.2",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vitest": "4.1.11",
+    "wxt": "0.21.4"
+  }
+}

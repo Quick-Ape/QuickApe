@@ -1,0 +1,5 @@
+# LF everywhere, so a checkout on any OS builds the same extension bytes.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.mp4 binary

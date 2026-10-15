@@ -1,0 +1,4 @@
+node_modules
+out
+# Raw screen recordings (contain private data, e.g. a seed phrase)
+public/rec
