@@ -314,6 +314,8 @@ html, body { max-width: 100%; }
 .spec dl { margin: 0; display: grid; gap: 0; font-family: var(--font-mono); font-size: .8125rem; }
 .spec dl div { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line-soft); }
 .spec dt { color: var(--faint); }
+.section-head p a, .spec dd a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(180,242,74,.4); }
+.section-head p a:hover, .spec dd a:hover { text-decoration-color: var(--lime); }
 .spec dd { margin: 0; color: #dfe6f3; overflow-wrap: anywhere; }
 .spec p { margin-top: auto; color: var(--muted); font-size: .875rem; }
 
@@ -757,11 +759,11 @@ dialog::backdrop { background: rgba(4,6,14,.55); -webkit-backdrop-filter: blur(6
     <div class="section-head">
       <span class="kicker">// security</span>
       <h2 id="security-title">Security, in plain terms.</h2>
-      <p>A trading extension asks for a lot of trust. Here is exactly what QuickApe does with your keys and clicks.</p>
+      <p>A trading extension asks for a lot of trust. Here is exactly what QuickApe does with your keys and clicks, and the code is <a href="https://github.com/Quick-Ape/QuickApe" target="_blank" rel="noopener">open source on GitHub</a> so you can check it.</p>
     </div>
     <div class="sec">
       <div class="sec-list">
-        <div class="sec-item glass"><h3><svg width="18" height="18"><use href="#check"/></svg>Non-custodial</h3><p>QuickApe has no servers. Keys never leave your browser.</p></div>
+        <div class="sec-item glass"><h3><svg width="18" height="18"><use href="#check"/></svg>Non-custodial</h3><p>No accounts, no database. Keys never leave your browser.</p></div>
         <div class="sec-item glass"><h3><svg width="18" height="18"><use href="#check"/></svg>Encrypted vault</h3><p>Your password unlocks an AES-256 vault. Nothing is stored in plain text.</p></div>
         <div class="sec-item glass"><h3><svg width="18" height="18"><use href="#check"/></svg>Locks itself</h3><p>The unlock key clears when the browser closes and auto-locks after you go idle.</p></div>
         <div class="sec-item glass"><h3><svg width="18" height="18"><use href="#check"/></svg>Pages can't press buy</h3><p>Buttons live in a closed shadow DOM and only respond to real clicks.</p></div>
@@ -777,6 +779,7 @@ dialog::backdrop { background: rgba(4,6,14,.55); -webkit-backdrop-filter: blur(6
           <div><dt>seed paths</dt><dd>m/44'/501'/n'/0' · m/44'/60'/0'/0/n</dd></div>
           <div><dt>ui isolation</dt><dd>closed shadow root · event.isTrusted</dd></div>
           <div><dt>fees</dt><dd>0.5% inside the swap · paid in SOL / ETH / BNB</dd></div>
+          <div><dt>source</dt><dd><a href="https://github.com/Quick-Ape/QuickApe" target="_blank" rel="noopener">Quick-Ape/QuickApe</a> · MIT · reproducible build</dd></div>
         </dl>
         <p>Seed paths match Phantom and MetaMask, so a backed-up trading wallet restores in either.</p>
       </aside>
@@ -1016,7 +1019,7 @@ const LINKS = {
   x: '',
   telegram: '',
   discord: '',
-  github: '',
+  github: 'https://github.com/Quick-Ape/QuickApe',
   email: '',
 };
 
