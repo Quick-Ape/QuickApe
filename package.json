@@ -13,7 +13,7 @@
     "test": "vitest run",
     "postinstall": "wxt prepare",
     "preview:ui": "vite --config dev/preview/vite.config.ts",
-    "deploy:site": "vercel deploy site --prod --yes --project quickape"
+    "deploy:site": "node scripts/deploy-site.mjs"
   },
   "dependencies": {
     "@noble/curves": "1.9.1",
